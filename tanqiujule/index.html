@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="弹球俱乐部 - 专业复古弹球机收藏、维修保养与经典游戏指南。探索复古娱乐文化，获取弹球机选购建议与维护技巧。">
+    <meta name="keywords" content="弹球俱乐部,复古弹球机,弹球机收藏,弹球游戏指南,街机维修">
+    <title>弹球俱乐部-复古弹球机收藏与娱乐指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --accent-hover: #d35400;
+            --bg-light: #f4f6f7;
+            --text-main: #333;
+            --text-light: #666;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-subscribe {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--radius);
+            background: var(--bg-light);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        /* Machine Showcase */
+        .showcase {
+            padding: 60px 0;
+        }
+
+        .machine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .machine-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s;
+        }
+
+        .machine-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .machine-image {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .machine-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .machine-card:hover .machine-image img {
+            transform: scale(1.05);
+        }
+
+        .machine-info {
+            padding: 20px;
+        }
+
+        .machine-tag {
+            display: inline-block;
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .machine-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .machine-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .machine-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .guide-sidebar {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
+            height: fit-content;
+        }
+
+        .guide-sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .guide-list li {
+            margin-bottom: 10px;
+        }
+
+        .guide-list a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .guide-list a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .guide-content article {
+            margin-bottom: 40px;
+        }
+
+        .guide-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .guide-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .guide-content li {
+            margin-bottom: 8px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .machine-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">⚡ <span>弹球</span>俱乐部</a>
+            <nav>
+                <ul>
+                    <li><a href="#machines" class="active">经典机台</a></li>
+                    <li><a href="#guide">收藏指南</a></li>
+                    <li><a href="#maintenance">维护保养</a></li>
+                    <li><a href="#community">玩家社区</a></li>
+                </ul>
+            </nav>
+            <a href="#join" class="btn-subscribe">加入俱乐部</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>重温黄金年代的机械奇迹</h1>
+                <p>探索复古弹球机的独特魅力，从经典机台鉴赏到专业维护技巧，这里是所有弹球爱好者的终极家园。</p>
+                <div class="hero-btns">
+                    <a href="#machines" class="btn-primary">浏览机台</a>
+                    <a href="#guide" class="btn-secondary">新手入门</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择我们</h2>
+                    <p>连接全球弹球收藏家与爱好者的桥梁</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>专业收藏鉴赏</h3>
+                        <p>深度解析历代经典机台的设计美学与玩法机制，助您建立专业的收藏眼光。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>维修与保养</h3>
+                        <p>提供详尽的电路图、零件更换指南及故障排除方案，延长您的爱机寿命。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>玩家社区</h3>
+                        <p>加入活跃的线下俱乐部与线上论坛，分享心得，寻找同城球友。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Machine Showcase -->
+        <section id="machines" class="showcase">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选经典机台</h2>
+                    <p>这些机台代表了不同年代弹球设计的巅峰之作</p>
+                </div>
+                <div class="machine-grid">
+                    <!-- Machine 1 -->
+                    <article class="machine-card">
+                        <div class="machine-image">
+                            <img src="https://picsum.photos/seed/pinball1/400/300" alt="太空大战弹球机">
+                        </div>
+                        <div class="machine-info">
+                            <span class="machine-tag">1978</span>
+                            <h3>太空大战 (Space Invaders)</h3>
+                            <p>基于同名游戏的经典改编，拥有标志性的外星人和激光射击机制，是早期街机游戏的巅峰。</p>
+                            <div class="machine-meta">
+                                <span>评分: 9.2/10</span>
+                                <span>稀有度: ★★★★</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Machine 2 -->
+                    <article class="machine-card">
+                        <div class="machine-image">
+                            <img src="https://picsum.photos/seed/pinball2/400/300" alt="闪电侠弹球机">
+                        </div>
+                        <div class="machine-info">
+                            <span class="machine-tag">1993</span>
+                            <h3>闪电侠 (The Flash)</h3>
+                            <p>Williams公司出品，以DC超级英雄为主题，拥有极具挑战性的“超级英雄模式”和炫目的灯光效果。</p>
+                            <div class="machine-meta">
+                                <span>评分: 8.8/10</span>
+                                <span>稀有度: ★★★</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Machine 3 -->
+                    <article class="machine-card">
+                        <div class="machine-image">
+                            <img src="https://picsum.photos/seed/pinball3/400/300" alt="午夜牛仔弹球机">
+                        </div>
+                        <div class="machine-info">
+                            <span class="machine-tag">1995</span>
+                            <h3>午夜牛仔 (Midnight Cowboy)</h3>
+                            <p>根据同名电影改编，剧情驱动型玩法，拥有独特的“约翰尼”和“拉奇奥”角色机制。</p>
+                            <div class="machine-meta">
+                                <span>评分: 8.5/10</span>
+                                <span>稀有度: ★★★★</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>收藏与维护指南</h2>
+                    <p>从选购到保养，全方位提升您的弹球体验</p>
+                </div>
+                <div class="guide-container">
+                    <aside class="guide-sidebar">
+                        <h3>快速导航</h3>
+                        <ul class="guide-list">
+                            <li><a href="#buying">如何选购</a></li>
+                            <li><a href="#maintenance">日常保养</a></li>
+                            <li><a href="#repair">故障修复</a></li>
+                            <li><a href="#upgrades">升级改装</a></li>
+                            <li><a href="#pricing">市场行情</a></li>
+                        </ul>
+                    </aside>
+                    <div class="guide-content">
+                        <article id="buying">
+                            <h3>新手如何选购第一台弹球机？</h3>
+                            <p>对于初学者来说，选购弹球机需要考虑预算、空间以及机台的状态。建议优先选择运行状态良好的二手机台，而非全新的原型机。</p>
+                            <ul>
+                                <li><strong>检查电源与灯光：</strong> 确保所有灯光正常亮起，插头接触良好。</li>
+                                <li><strong>测试挡板：</strong> 确保弹簧挡板回弹有力，不会卡住。</li>
+                                <li><strong>检查轨道：</strong> 观察球在轨道上的滚动是否顺滑，有无明显卡顿。</li>
+                            </ul>
+                        </article>
+
+                        <article id="maintenance">
+                            <h3>日常维护与保养技巧</h3>
+                            <p>弹球机是精密的机械设备，定期的保养能显著延长其使用寿命。建议每周进行一次基础清洁。</p>
+                            <p>使用超细纤维布擦拭机台表面，避免使用含有酒精或腐蚀性的清洁剂。定期清理底部的硬币槽和轨道缝隙，防止灰尘堆积影响弹簧的回弹力。</p>
+                        </article>
+
+                        <article id="repair">
+                            <h3>常见故障排查</h3>
+                            <p>如果弹球机出现不亮灯或挡板不动作的情况，通常是继电器或线路接触不良。对于非专业玩家，建议先检查保险丝盒。</p>
+                            <p>对于弹簧断裂或挡板卡死等机械故障，可以自行购买替换零件（如挡板弹簧、线圈）进行更换。更多复杂的电路维修请咨询专业技师。</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">弹球机适合儿童吗？</div>
+                        <div class="faq-answer">弹球机虽然主要面向成人市场，但许多现代机台（如迪士尼系列）设计得更加温和，适合12岁以上的儿童在成人陪同下游玩。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">家用弹球机需要特殊的电源吗？</div>
+                        <div class="faq-answer">大多数现代弹球机使用110V或220V的家用电压，但电流较大，建议在墙壁插座处加装一个专用的断路器或稳压器。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">在哪里可以找到配件？</div>
+                        <div class="faq-answer">我们的网站提供部分常用配件的购买链接，您也可以通过“玩家社区”板块联系其他收藏家进行二手零件交易。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">玩弹球机有什么技巧？</div>
+                        <div class="faq-answer">核心技巧在于控制球的角度和力度。练习“拉球”和“滑球”技术可以让你更容易击中目标，避免球直接飞出机台。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="join">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>⚡ 弹球俱乐部</h4>
+                    <p>致力于推广复古弹球文化，连接全球收藏家与爱好者。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#machines">机台展示</a></li>
+                        <li><a href="#guide">收藏指南</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱: contact@pinballclub.com</li>
+                        <li>电话: 400-123-4567</li>
+                        <li>地址: 上海市徐汇区复古娱乐街88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 弹球俱乐部. All Rights Reserved. 仅供展示与交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
