@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CS1.6僵尸地图包下载与指南。提供经典僵尸求生模式地图推荐、安装教程、MOD插件使用说明及僵尸地图修改器工具下载，助你打造专属僵尸CS1.6服务器。">
+    <meta name="keywords" content="cs1.6僵尸地图包,CS1.6僵尸地图,CS1.6僵尸MOD,CS1.6僵尸地图下载,僵尸求生模式">
+    <title>CS1.6僵尸地图包-经典僵尸求生模式地图下载与MOD指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --text-color: #ecf0f1;
+            --text-muted: #95a5a6;
+            --accent-green: #27ae60;
+            --border-radius: 8px;
+            --spacing: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            padding: var(--spacing) 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/cstrike1.6zombie/1600/600') no-repeat center center/cover;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-color);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* Map Grid */
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .map-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+
+        .map-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .map-thumb {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #333;
+        }
+
+        .map-info {
+            padding: 20px;
+        }
+
+        .map-tag {
+            font-size: 0.75rem;
+            background-color: rgba(231, 76, 60, 0.2);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .map-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .map-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .map-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        /* Installation Guide */
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .sidebar-box {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+
+        .step-list {
+            counter-reset: step;
+            list-style: none;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+        }
+
+        .step-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .guide-content h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 40px 0;
+            margin-top: auto;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .header-inner { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .guide-container { grid-template-columns: 1fr; }
+            .btn { width: 100%; margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span>CS1.6</span> 僵尸地图包
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#maps">热门地图</a></li>
+                <li><a href="#guide">安装教程</a></li>
+                <li><a href="#plugins">MOD插件</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>重温经典 CS1.6 僵尸求生</h1>
+        <p>收集最新的 CS1.6 僵尸地图包，包含经典僵尸求生、生化模式及创意MOD，下载安装即可在本地服务器或局域网中畅玩。</p>
+        <div>
+            <a href="#maps" class="btn btn-primary">浏览地图库</a>
+            <a href="#guide" class="btn btn-outline">查看安装指南</a>
+        </div>
+    </section>
+
+    <!-- Featured Maps -->
+    <section id="maps">
+        <div class="section-title">
+            <span>精选 CS1.6 僵尸地图推荐</span>
+            <a href="#">查看完整榜单 &rarr;</a>
+        </div>
+        
+        <div class="map-grid">
+            <!-- Map 1 -->
+            <article class="map-card">
+                <img src="https://picsum.photos/seed/zombie1/400/300" alt="僵尸突围" class="map-thumb">
+                <div class="map-info">
+                    <span class="map-tag">经典模式</span>
+                    <h3 class="map-title">僵尸突围 (Zombie Outbreak)</h3>
+                    <p class="map-desc">经典的僵尸突围地图，玩家需要守住终点，抵御尸潮进攻，考验团队配合与防守能力。</p>
+                    <div class="map-meta">
+                        <span>难度: ★★★★</span>
+                        <span>玩家人数: 16/32</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Map 2 -->
+            <article class="map-card">
+                <img src="https://picsum.photos/seed/zombie2/400/300" alt="生化危机" class="map-thumb">
+                <div class="map-info">
+                    <span class="map-tag">生化模式</span>
+                    <h3 class="map-title">生化危机：废墟 (Resident Evil Ruins)</h3>
+                    <p class="map-desc">废弃工厂风格的生化地图，拥有复杂的立体结构和大量的掩体，适合各种战术博弈。</p>
+                    <div class="map-meta">
+                        <span>难度: ★★★</span>
+                        <span>玩家人数: 20/32</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Map 3 -->
+            <article class="map-card">
+                <img src="https://picsum.photos/seed/zombie3/400/300" alt="永恒之城" class="map-thumb">
+                <div class="map-info">
+                    <span class="map-tag">创意MOD</span>
+                    <h3 class="map-title">永恒之城 (City of the Undead)</h3>
+                    <p class="map-desc">大型创意地图，拥有独特的BOSS战机制和多种僵尸形态，提供沉浸式的生存体验。</p>
+                    <div class="map-meta">
+                        <span>难度: ★★★★★</span>
+                        <span>玩家人数: 24/32</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Map 4 -->
+            <article class="map-card">
+                <img src="https://picsum.photos/seed/zombie4/400/300" alt="雪地僵尸" class="map-thumb">
+                <div class="map-info">
+                    <span class="map-tag">季节限定</span>
+                    <h3 class="map-title">冰封战场 (Frozen Frontline)</h3>
+                    <p class="map-desc">雪地主题的生存地图，环境恶劣，视野受限，增加了游戏的不确定性和挑战性。</p>
+                    <div class="map-meta">
+                        <span>难度: ★★★★</span>
+                        <span>玩家人数: 16/32</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section id="guide">
+        <div class="section-title">
+            <span>CS1.6 僵尸地图安装指南</span>
+        </div>
+        
+        <div class="guide-container">
+            <aside class="sidebar-box">
+                <h3>快速步骤</h3>
+                <ol class="step-list">
+                    <li>
+                        <span class="step-title">下载地图包</span>
+                        <span class="step-desc">获取对应的 .zip 或 .rar 压缩包。</span>
+                    </li>
+                    <li>
+                        <span class="step-title">解压文件</span>
+                        <span class="step-desc">将压缩包解压至 Steam/CS1.6 的 maps 文件夹。</span>
+                    </li>
+                    <li>
+                        <span class="step-title">配置服务器</span>
+                        <span class="step-desc">在 server.cfg 中添加地图名或使用 rcon 指令。</span>
+                    </li>
+                    <li>
+                        <span class="step-title">启动游戏</span>
+                        <span class="step-desc">进入游戏控制台输入 "map 地图名" 开始游玩。</span>
+                    </li>
+                </ol>
+            </aside>
+            
+            <div class="guide-content">
+                <h3>详细操作说明</h3>
+                <p>CS1.6 的地图包安装非常简单。首先，请确保你已经拥有 Steam 版或单机版（HLDS）的 Counter-Strike 1.6 安装目录。找到 <code>cstrike/maps</code> 文件夹。</p>
+                <p>下载地图包后，请使用 WinRAR 或 7-Zip 打开压缩文件，你会看到类似 <code>de_dust2.bsp</code> 或 <code>zs_arena.bsp</code> 的文件。直接将它们复制到 maps 文件夹中即可。</p>
+                <p>如果你是搭建局域网服务器，需要在服务器根目录的 <code>cstrike/cfg</code> 文件夹下找到 <code>server.cfg</code>，添加 <code>map <地图文件名.bsp></code> 指令来指定地图。如果是单人游玩，启动游戏后在控制台输入 <code>map <地图文件名.bsp></code> 即可进入。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugins & Tools -->
+    <section id="plugins">
+        <div class="section-title">
+            <span>常用插件与修改器</span>
+        </div>
+        <div class="map-grid">
+            <article class="map-card">
+                <div class="map-info">
+                    <h3 class="map-title">Amx Mod X (AMXX)</h3>
+                    <p class="map-desc">CS1.6 最核心的插件管理器，几乎所有僵尸MOD都依赖它来实现角色切换、武器掉落等功能。</p>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看插件下载 &rarr;</a>
+                </div>
+            </article>
+            <article class="map-card">
+                <div class="map-info">
+                    <h3 class="map-title">僵尸地图修改器</h3>
+                    <p class="map-desc">工具类软件，用于快速批量转换地图格式、修改地图名字或生成地图压缩包。</p>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">下载修改器 &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="section-title">
+            <span>常见问题解答 (FAQ)</span>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">下载的地图在游戏中看不到？</div>
+            <div class="faq-answer">请检查文件是否完整解压，以及文件名是否正确（确保 .bsp 后缀存在且没有多余的中文乱码）。如果是单人游玩，请确保你是在控制台输入指令，而不是直接在游戏菜单选择。</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">CS1.6 僵尸模式需要什么插件支持？</div>
+            <div class="faq-answer">通常需要安装 AMXX (Amx Mod X) 插件平台，以及对应的僵尸插件（如 Zombie Plague 或 Zombie Mod）。地图包说明中通常会附带插件列表。</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">如何创建一个带僵尸模式的局域网服务器？</div>
+            <div class="faq-answer">使用 HLDS (Half-Life Dedicated Server) 安装 CS1.6 客户端，然后安装 AMXX 插件和僵尸 MOD 插件，最后在控制台输入 <code>sv_lan 1</code> 开启局域网模式并启动地图。</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于本站</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系站长</a>
+            <a href="#">RSS订阅</a>
+        </div>
+        <p>&copy; 2023 CS1.6僵尸地图包资源站. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #555;">本站资源仅供学习交流使用，请勿用于商业用途。</p>
+    </div>
+</footer>
+
+<script>
+    // 简单的 FAQ 交互逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // 关闭其他打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+  </html>
