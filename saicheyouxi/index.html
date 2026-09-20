@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛车游戏在线玩 - 极速竞速与高清画质手游推荐平台</title>
+    <meta name="description" content="赛车游戏在线玩平台，提供多款高画质赛车手游、模拟器及网页版赛车游戏推荐。包含超跑、漂移、赛车模拟、赛车竞技等热门类型，支持电脑与手机在线畅玩。">
+    <meta name="keywords" content="赛车游戏在线玩,赛车手游,网页赛车游戏,赛车模拟器,漂移赛车,赛车竞技">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff3e3e;
+            --secondary-color: #1a1a2e;
+            --accent-color: #ffd700;
+            --text-dark: #333333;
+            --text-light: #f5f5f5;
+            --bg-light: #f9f9f9;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 62, 62, 0.2) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 62, 62, 0.4);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: #ff5e5e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 62, 62, 0.6);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 62, 62, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+        }
+
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .guide-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .guide-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .guide-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>⚡</span> SpeedZone
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#hot">热门赛车</a></li>
+                    <li><a href="#simulator">模拟器</a></li>
+                    <li><a href="#guide">新手指南</a></li>
+                    <li><a href="#download">下载中心</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>赛车游戏在线玩</h1>
+                <p>打破物理引擎限制，体验指尖上的速度与激情。无论是硬核模拟还是休闲竞速，这里都有属于你的赛道。</p>
+                <a href="#hot" class="cta-button">立即开始竞速</a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>收录游戏</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000万+</h3>
+                    <p>玩家选择</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4K</h3>
+                    <p>极致画质</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Games -->
+        <section class="container" id="hot">
+            <div class="section-title">
+                <h2>热门赛车游戏推荐</h2>
+                <p>精选年度最受欢迎的赛车手游与网页游戏</p>
+            </div>
+            <div class="game-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">高画质</span>
+                        <img src="https://picsum.photos/seed/car1/400/300" alt="极速狂飙赛车">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">极速狂飙赛车</h3>
+                        <p class="card-desc">基于真实物理引擎打造的超跑竞速游戏，支持漂移过弯与氮气加速，还原赛道极限体验。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★★ 4.9</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('极速狂飙赛车')">立即游玩</button>
+                    </div>
+                </article>
+
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">策略</span>
+                        <img src="https://picsum.photos/seed/car2/400/300" alt="城市漂移王">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">城市漂移王</h3>
+                        <p class="card-desc">在繁华都市中穿梭，挑战各种复杂的街道环境，解锁顶级改装车，成为漂移之王。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★☆ 4.7</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('城市漂移王')">立即游玩</button>
+                    </div>
+                </article>
+
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">模拟</span>
+                        <img src="https://picsum.photos/seed/car3/400/300" alt="真实赛车模拟2">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">真实赛车模拟2</h3>
+                        <p class="card-desc">硬核模拟器，包含F1级别的车辆调校与赛道数据，适合追求极致操控感的玩家。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★★ 4.8</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('真实赛车模拟2')">立即游玩</button>
+                    </div>
+                </article>
+
+                <!-- Game Card 4 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">休闲</span>
+                        <img src="https://picsum.photos/seed/car4/400/300" alt="疯狂赛车手">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">疯狂赛车手</h3>
+                        <p class="card-desc">无需复杂的操作，享受纯粹的碰撞与速度快感，支持多人同屏竞技。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★☆ 4.6</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('疯狂赛车手')">立即游玩</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择 SpeedZone？</h2>
+                    <p>为赛车爱好者打造的专属游戏平台</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <h3>极速加载</h3>
+                        <p>采用先进的云游戏技术，无需下载，点击即玩，秒开不卡顿。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎮</div>
+                        <h3>海量资源</h3>
+                        <p>涵盖街机赛车、竞速、拉力赛、漂移等多种类型，满足不同口味。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <h3>实时排行</h3>
+                        <p>全球玩家排行榜，实时更新战绩，见证你的巅峰时刻。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全无毒</h3>
+                        <p>所有游戏均经过人工审核，确保运行环境安全，保护您的设备。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="guide-section" id="guide">
+            <div class="container">
+                <div class="guide-container">
+                    <div class="guide-content">
+                        <h2>新手玩家入门指南</h2>
+                        <p>如果您是赛车游戏的新手，掌握以下技巧将帮助您更快上手。</p>
+                        <ul class="guide-list">
+                            <li>了解车辆参数：重量、马力、抓地力直接影响过弯表现。</li>
+                            <li>善用氮气加速：在直道末端或长坡前使用，能大幅缩短时间。</li>
+                            <li>漂移过弯技巧：在高速入弯时轻点刹车并反向打方向，保持速度。</li>
+                            <li>赛道记忆：记住每个弯道的最佳走线，减少不必要的减速。</li>
+                        </ul>
+                    </div>
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/guide/600/400" alt="赛车游戏操作指南">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Section -->
+        <section class="container" id="simulator">
+            <div class="section-title">
+                <h2>硬核赛车模拟器</h2>
+                <p>为专业玩家提供的极致仿真体验</p>
+            </div>
+            <div class="game-grid">
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">专业</span>
+                        <img src="https://picsum.photos/seed/sim1/400/300" alt="GT赛车模拟器">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">GT赛车模拟器</h3>
+                        <p class="card-desc">专注于真实驾驶感受，包含超过500辆授权跑车，真实的物理反馈。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★★ 5.0</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('GT赛车模拟器')">立即游玩</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">拉力</span>
+                        <img src="https://picsum.photos/seed/sim2/400/300" alt="拉力传奇">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">拉力传奇</h3>
+                        <p class="card-desc">在泥泞、冰雪和砂石路面上挑战极限，感受雨雪天气下的车辆失控感。</p>
+                        <div class="card-meta">
+                            <span class="rating">★★★★☆ 4.8</span>
+                            <span>在线玩</span>
+                        </div>
+                        <button class="download-btn" onclick="startGame('拉力传奇')">立即游玩</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SpeedZone</h4>
+                <p>专注赛车游戏推荐，提供最流畅的在线游戏体验。</p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">竞速赛车</a></li>
+                    <li><a href="#">拉力赛</a></li>
+                    <li><a href="#">F1赛车</a></li>
+                    <li><a href="#">休闲赛车</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">游戏下载</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p>获取最新游戏资讯与活动信息。</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 SpeedZone 赛车游戏在线玩平台. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('active');
+        }
+
+        // Start Game Simulation
+        function startGame(gameName) {
+            // Create a simple toast notification
+            const toast = document.createElement('div');
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = 'rgba(0,0,0,0.8)';
+            toast.style.color = 'white';
+            toast.style.padding = '12px 24px';
+            toast.style.borderRadius = '8px';
+            toast.style.zIndex = '2000';
+            toast.style.fontSize = '14px';
+            toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+            toast.textContent = `正在加载《${gameName}》...`;
+            
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.textContent = `《${gameName}》加载完成，开始游戏！`;
+                toast.style.backgroundColor = '#4CAF50';
+            }, 1500);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+                          </html>
