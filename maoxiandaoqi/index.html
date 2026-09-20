@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冒险岛骑士团3转职业转职任务流程详解，包含龙骑士、战神、幻影、唤灵师等职业的3转条件、地点及注意事项，助你快速完成转职。">
+    <meta name="keywords" content="冒险岛骑士团3转,冒险岛转职,冒险岛攻略,冒险岛骑士团">
+    <title>冒险岛骑士团3转-职业转职流程与条件详解</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff8c00;
+            --secondary-color: #1a1a2e;
+            --accent-color: #e94560;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 内容网格 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* 通用卡片样式 */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: #444;
+        }
+
+        /* 职业列表 */
+        .job-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .job-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .job-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* 转职步骤 */
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* 侧边栏 */
+        .sidebar-widget {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .data-table th, .data-table td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            background-color: #f8f9fa;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* 按钮 */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e07b00;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #888;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <span>⚔️</span> 冒险岛骑士团百科
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">3转攻略</a></li>
+                <li><a href="#">2转攻略</a></li>
+                <li><a href="#">职业排行</a></li>
+                <li><a href="#">工具箱</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>冒险岛骑士团3转</h1>
+        <p>完成3转是骑士团成长的关键节点。本站提供详细的转职条件、任务流程、所需等级及注意事项，助你顺利解锁强力技能。</p>
+    </section>
+
+    <div class="content-grid">
+        <!-- 左侧主要内容区 -->
+        <div class="main-content">
+            
+            <!-- 概述卡片 -->
+            <article class="card">
+                <h2>3转总览与条件</h2>
+                <p>骑士团角色在达到<strong>120级</strong>并完成2转任务后，将开启3转之路。3转将大幅提升角色的基础属性（包括熟练度上限）和核心技能，是PVE和PVP中不可或缺的战力提升。</p>
+                <div class="tip-box">
+                    <strong>通用要求：</strong> 角色等级120级，完成2转任务，拥有足够的勇气点数（通常需完成所有前置日常）。
+                </div>
+            </article>
+
+            <!-- 职业列表 -->
+            <article class="card">
+                <h2>各职业3转任务地点</h2>
+                <p>不同职业的3转任务地点不同，请根据你的角色职业前往指定NPC处接取任务。</p>
+                
+                <div class="job-list">
+                    <div class="job-card">
+                        <div class="job-icon">🗡️</div>
+                        <span class="job-name">龙骑士</span>
+                        <span class="job-desc">前往天空之城找 阿尔杰塔</span>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-icon">🛡️</div>
+                        <span class="job-name">战神</span>
+                        <span class="job-desc">前往神木村找 艾尔文</span>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-icon">🧙‍♂️</div>
+                        <span class="job-name">幻影</span>
+                        <span class="job-desc">前往艾琳找 雅儿</span>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-icon">🔮</div>
+                        <span class="job-name">唤灵师</span>
+                        <span class="job-desc">前往艾琳找 艾尔文</span>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-icon">🏹</div>
+                        <span class="job-name">神射</span>
+                        <span class="job-desc">前往天空之城找 艾尔文</span>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-icon">🔮</div>
+                        <span class="job-name">炼金术士</span>
+                        <span class="job-desc">前往神木村找 艾尔文</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 任务流程详解 -->
+            <article class="card">
+                <h2>通用任务流程</h2>
+                <p>大多数骑士团职业的3转任务流程相似，主要包含以下几个步骤：</p>
+                
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-title">接取任务</div>
+                        <div class="step-content">前往对应职业的3转转职NPC处，领取“转职任务”。</div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">收集材料</div>
+                        <div class="step-content">根据任务提示，收集特定的怪物掉落物。例如：龙骑士需要“龙之鳞片”等。</div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">击杀首领</div>
+                        <div class="step-content">前往指定地图击杀BOSS怪物。建议组队进行，BOSS伤害较高。</div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">提交与转职</div>
+                        <div class="step-content">收集齐材料后，返回NPC处提交任务，即可完成3转。</div>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- 常见问题 FAQ -->
+            <article class="card">
+                <h2>常见问题 (FAQ)</h2>
+                
+                <h3>1. 3转任务是否必须组队？</h3>
+                <p>大多数3转任务中的BOSS战需要组队才能快速完成，单人挑战难度较大。建议与公会成员或朋友组队。</p>
+                
+                <h3>2. 如果任务失败怎么办？</h3>
+                <p>任务失败不会影响进度，可以直接再次尝试。请注意查看任务日志中的失败原因（如BOSS未在限定时间内击杀）。</p>
+                
+                <h3>3. 3转后技能如何加点？</h3>
+                <p>3转后开放了新的技能栏位，建议优先提升核心输出技能，并根据职业定位（如生存或爆发）适当分配技能点。</p>
+            </article>
+
+        </div>
+
+        <!-- 右侧侧边栏 -->
+        <aside class="sidebar">
+            
+            <!-- 转职等级表 -->
+            <div class="sidebar-widget">
+                <h2>转职等级表</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>转职阶段</th>
+                            <th>所需等级</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1转</td>
+                            <td>30级</td>
+                        </tr>
+                        <tr>
+                            <td>2转</td>
+                            <td>70级</td>
+                        </tr>
+                        <tr>
+                            <td>3转</td>
+                            <td>120级</td>
+                        </tr>
+                        <tr>
+                            <td>4转</td>
+                            <td>200级</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <a href="#" class="btn btn-outline">查看更多等级要求</a>
+                </div>
+            </div>
+
+            <!-- 注意事项 -->
+            <div class="sidebar-widget">
+                <h2>转职贴士</h2>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ 确保背包空间充足，任务可能需要存放材料。</li>
+                    <li style="margin-bottom: 10px;">✅ 检查装备耐久度，避免战斗中装备损坏。</li>
+                    <li style="margin-bottom: 10px;">✅ 准备好恢复药水，特别是面对BOSS时。</li>
+                </ul>
+            </div>
+
+            <!-- 广告位占位 -->
+            <div class="sidebar-widget" style="background-color: #eee; min-height: 250px; display: flex; align-items: center; justify-content: center; color: #999;">
+                广告位
+            </div>
+
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 冒险岛骑士团百科. 本站为攻略参考站，游戏版权归Nexon所有。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">数据仅供参考，请以游戏内实际为准。</p>
+    </div>
+</footer>
+
+</body>
+</html>
