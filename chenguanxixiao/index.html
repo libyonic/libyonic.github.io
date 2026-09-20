@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="陈冠希小时候照片专题页，汇集陈冠希童年时期珍贵影像、成长记录及早期演艺生涯相关资料，供网友怀旧与回顾。">
+    <meta name="keywords" content="陈冠希,陈冠希小时候照片,Edison Chen,童年影像,早期照片">
+    <title>陈冠希小时候照片 - 童年影像与早期成长记录</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing: 20px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: -40px auto 40px;
+            padding: 0 var(--spacing);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Content Grid */
+        .content-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .photo-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            background-color: #eee;
+        }
+
+        .photo-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .photo-info {
+            padding: 12px;
+        }
+
+        .photo-caption {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .photo-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .timeline-list {
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .timeline-list::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #eee;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+            padding-left: 16px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -19px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px #eee;
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 2px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .category-list li {
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .category-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #999;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                margin-top: -20px;
+            }
+            
+            .nav-links {
+                display: none; /* Simplify for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>★</span> 陈冠希童年影像馆
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#gallery">珍贵照片</a>
+                <a href="#timeline">成长足迹</a>
+                <a href="#categories">相关分类</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>陈冠希小时候照片</h1>
+            <p>回顾陈冠希（Edison Chen）从童星时期到出道前的成长轨迹，记录那些鲜为人知的珍贵瞬间。</p>
+            <div class="hero-tags">
+                <span class="tag">童年生活</span>
+                <span class="tag">早期演艺</span>
+                <span class="tag">家庭照片</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <!-- Left Content: Gallery -->
+        <section class="content-section" id="gallery">
+            <div class="section-header">
+                <h2 class="section-title">精选童年影像</h2>
+                <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看更多 →</a>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Card 1 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <!-- Placeholder for childhood photo -->
+                        <img src="https://picsum.photos/seed/chen1/400/400" alt="陈冠希童年早期照片">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">童年早期生活照</h3>
+                        <div class="photo-meta">
+                            <span>约 1990年代</span>
+                            <span>生活记录</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://picsum.photos/seed/chen2/400/400" alt="陈冠希学生时代照片">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">学生时代留影</h3>
+                        <div class="photo-meta">
+                            <span>约 1994年</span>
+                            <span>校园生活</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://picsum.photos/seed/chen3/400/400" alt="陈冠希童年家庭合影">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">家庭温馨时刻</h3>
+                        <div class="photo-meta">
+                            <span>约 1995年</span>
+                            <span>家庭聚会</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://picsum.photos/seed/chen4/400/400" alt="陈冠希早期表演经历照片">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">早期童星经历</h3>
+                        <div class="photo-meta">
+                            <span>约 1996年</span>
+                            <span>演艺活动</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://picsum.photos/seed/chen5/400/400" alt="陈冠希少年时期照片">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">少年时期风采</h3>
+                        <div class="photo-meta">
+                            <span>约 1997年</span>
+                            <span>成长记录</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://picsum.photos/seed/chen6/400/400" alt="陈冠希出道前准备照片">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-caption">出道前准备</h3>
+                        <div class="photo-meta">
+                            <span>约 1999年</span>
+                            <span>出道前夕</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Timeline Widget -->
+            <div class="widget" id="timeline">
+                <h3 class="widget-title">成长足迹时间线</h3>
+                <div class="timeline-list">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1980年</div>
+                        <div class="timeline-desc">出生于加拿大温哥华，父亲是艺术家陈泽民。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1989年</div>
+                        <div class="timeline-desc">随父母回香港生活，开始接触艺术熏陶。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1992年</div>
+                        <div class="timeline-desc">被星探发掘，开始拍摄广告，崭露头角。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1996年</div>
+                        <div class="timeline-desc">主演电影《咖喱辣椒》，正式进入影视圈。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1999年</div>
+                        <div class="timeline-desc">推出首张个人专辑，正式以歌手身份出道。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="widget" id="categories">
+                <h3 class="widget-title">相关分类</h3>
+                <ul class="category-list">
+                    <li><a href="#">陈冠希早期电影作品</a></li>
+                    <li><a href="#">陈冠希音乐专辑回顾</a></li>
+                    <li><a href="#">陈冠希摄影作品</a></li>
+                    <li><a href="#">香港娱乐旧闻</a></li>
+                    <li><a href="#">香港电影黄金年代</a></li>
+                </ul>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div style="background: #eee; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.9rem;">
+                广告位
+            </div>
+
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于本站</a>
+                <a href="#">隐私政策</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系方式</a>
+            </div>
+            <p>&copy; 2023 陈冠希童年影像馆. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">本站仅用于怀旧与资料整理，非官方网站。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
